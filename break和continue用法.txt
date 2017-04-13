@@ -1,0 +1,11 @@
+break		语句的作用是终止当前循环，跳出循环体。
+continue	语句的作用是终止本轮循环并开始下一轮循环
+			（这里要注意的是：在开始下一轮循环之前，会先测试循环条件）
+			
+用这个例子理解break、和 continue
+for i in range(10):
+	if i%2 !=0:
+		print(i)
+		continue
+	i += 2
+	print(i)

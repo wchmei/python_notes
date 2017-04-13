@@ -1,0 +1,14 @@
+def fib(max):
+    n, a, b = 0, 0, 1
+    while n < max:
+        yield b
+        a, b = b, a + b
+        n = n + 1
+    return 'done'
+	
+generator 是用来产生一系列值的
+yield则像是generator函数的返回结果
+yield唯一所做的另一件事就是保存一个generator函数的状态
+generator就是一个特殊的迭代器(iterator)
+和迭代器相似，我们可以通过使用next()来从generator中获取下一个值
+通过隐式地调用next()来忽略一些值

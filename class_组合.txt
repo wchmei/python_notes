@@ -1,0 +1,66 @@
+0 什么是组合？
+	Python继承机制很有用，但容易把代码复杂化以及依赖隐含继承。因此，经常的时候，我们可以
+	使用组合来代替。在Python里组合其实很简单，直接在类定义中把需要的类放进去实例化就可以了。
+// 乌龟类
+class Turtle:
+    def __init__(self, x):
+        self.num = x
+// 鱼类
+class Fish:
+    def __init__(self, x):
+        self.num = x
+// 水池类
+class Pool:
+    def __init__(self, x, y):
+        self.turtle = Turtle(x)        // 组合乌龟类进来
+        self.fish = Fish(y)        // 组合鱼类进来
+     
+    def print_num(self):
+        print("水池里总共有乌龟 %d 只，小鱼 %d 条！" % (self.turtle.num, self.fish.num))
+
+>>> pool = Pool(1, 10)
+>>> pool.print_num()
+
+1.什么时候用组合，什么时候用继承？
+	根据实际应用场景确定。简单的说，组合用于“有一个”的场景中，继承用于“是一个”的场景中。
+	例如，水池里有一个乌龟，天上有一个鸟，地上有一个小甲鱼，这些适合使用组合。青瓜是瓜，女人是人，
+	鲨鱼是鱼，这些就应该使用继承。
+
+2类对象是在什么时候产生
+	当已这个类定义完的时候，类定义就变成类对象，可以直接通过“类名.属性”或者“类名.方法名()”引用
+	或使用相关的属性或方法。
+
+3 如果对象的属性跟方法名字相同，会怎样？
+	如果对象的属性跟方法名相同，属性会覆盖方法。
+
+4 请问以下类定义中哪些是类属性，哪些是实例属性
+
+class C:
+	num = 0
+	def __init__(self):
+		self.x = 4
+		self.y = 5
+		C.count = 6
+num 和 count是类属性(静态变量),x和y是实例属性。大多数情况下，你应该考虑使用实例属性，
+而不是类属性（类属性通常仅用来跟踪与类相关的值）
+
+class C:
+        count = 0
+        
+        def __init__(self):
+                C.count += 1
+
+        def __del__(self):
+                C.count -= 1
+
+>>> a = C()
+>>> b = C()
+>>> c = C()
+>>> C.count
+3
+>>> del a
+>>> C.count
+2
+>>> del b, c
+>>> C.count
+0

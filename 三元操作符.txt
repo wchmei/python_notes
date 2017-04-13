@@ -1,0 +1,22 @@
+三元操作符
+x,y = 4,5
+if x < y:
+	small = x
+else:
+	small = y
+	
+small = x if x < y else y
+
+
+x, y, z = 6, 5, 4
+if x < y:
+    small = x
+    if z < small:
+        small = z
+elif y < z:
+    small = y
+else:
+    small = z
+	
+	
+small = x if x < y , y < z else z

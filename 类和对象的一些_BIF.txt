@@ -1,0 +1,25 @@
+0 如何判断一个类是否为另一个类的子类
+	使用issubclass(class,classinfo)函数，如果第一个参数(class)是第二个参数(classinfo)的一个子类，
+	则返回True，否则返回Flase
+	一个类被认为是其自身的子类
+	classinfo可以是类对象组成的元组，只要class与其中任何一个候选类的子类，则返回True
+	在其他情况下，会抛出一个TypeError异常
+
+1 如果判断对象a是否为类A的实例对象？
+	使用isinstance(object,classinfo)函数，如果一个参数(object)是第二个参数(classinfo)的
+	实例对象，则返回True,否则返回False。
+	如果object是classinfo的子类的一个实例，也符合条件
+	如果第一个参数不是对象，则永远返回False
+	classinfo可以是类对象组成的元组，只要class与一个候选类的子类，则返回True
+	如果第二个参数不是类或者由类对象组成的元组，会抛出一个TypeError异常
+2 如何优雅地避免访问对象不存在的属性（不产生异常）？
+	有两种方法可以做到
+	第一种先使用hasattr(object,name)函数判断属性是否存在，如果存在再访问（第一个参数(object)是
+	对象，第二个参数(name)是属性名的字符串形式）;
+	第二种方法是直接使用getattr(object,name[,default])函数并设置default参数(返回对象指定的属性值，如果指定的属性
+	不存在，则返回default(可选参数)的值。
+	
+3. Python的一些BIF很奇怪,但却十分有用，请问property()函数的作用是什么？
+	property()函数允许编程人员轻松，有效地管理属性访问。
+	
+	

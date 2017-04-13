@@ -1,0 +1,10 @@
+#升级pip包
+python -m pip install -U pip 
+#查看pip帮助
+pip -h
+#查看 pip 中install 的操作项
+pip install -h
+#查看过期的包
+pip list --outdated
+#更新过期的包
+pip install -U distribute

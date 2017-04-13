@@ -1,0 +1,26 @@
+s为字符串
+s.isalnum() 所有字符都是数字或者字母，为真返回True,否则返回False
+
+s.isalpha() 所有字符都是字母，为真返回True,否则返回False
+
+s.isdigit() 所有字符都是数字，为真返回True,否则返回False
+
+s.islower() 所有字符都是小写，为真返回True,否则返回False
+
+s.isupper() 所有字符都是大写，为真返回True,否则返回False
+
+s.istitle() 所有单词都是首字母大写，为真返回True,否则返回False
+
+s.isspace() 所有字符都是空白字符，为真返回True,否则返回False
+
+
+例如
+s = 'WANGCHAOMEI'
+s.isupper()
+True
+
+temp = input("不妨猜一下小甲鱼现在心里想的是哪个数字：")
+# not操作符的作用是将布尔类型的结果翻转：即取反的意思，not True == Flase
+while not isinstance(temp, int):
+    print("抱歉，输入不合法，", end='')
+    temp = input("请输入一个整数：")
